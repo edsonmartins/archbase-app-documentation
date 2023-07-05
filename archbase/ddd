@@ -1,0 +1,205 @@
+DDD
+
+Refatorando de modelo anêmico para DDD
+
+Usar entidades ou DTO's com Querys and Commands
+
+falta mensagens eive e terminar a traducao
+
+
+https://paucls.wordpress.com/2019/01/23/my-notes-on-refactoring-from-anemic-domain-model-by-vladimir-khorikov/
+
+
+
+
+
+
+- Repositorios com DTO ou com entidades
+- Query com DTO ou com entidades
+- Gerar commands para agregates mais simples
+- Gerar classes de persistencia
+
+
+- lista os frameworks usados
+
+- gerar repositórios por agreggate root
+- como criar uma entidade base dominio core com chave composta
+- mudar getter lombok para immutable  
+- get/set privados
+- saga
+- segregação
+- shared kernel
+- bus service command
+- mediator (escuta fila e entrega)
+- domain notification handler
+
+models
+events
+eventhandlers
+commands
+commands handlers
+
+https://www.baeldung.com/cqrs-for-a-spring-rest-api
+https://www.baeldung.com/cqrs-event-sourcing-java
+https://www.baeldung.com/cqrs-event-sourcing-java
+https://www.baeldung.com/cqrs-for-a-spring-rest-api
+
+
+https://auth0.com/blog/automatically-mapping-dto-to-entity-on-spring-boot-apis/
+
+https://github.com/ketan-gote/ddd-example
+
+https://medium.com/@marcelomg21/cqrs-command-query-responsibility-segregation-em-uma-arquitetura-de-micro-serviços-71dcb687a8a9
+
+
+https://blog.pragmatists.com/refactoring-from-anemic-model-to-ddd-880d3dd3d45f
+
+
+https://blog.nebrass.fr/playing-with-cqrs-and-event-sourcing-in-spring-boot-and-axon/
+
+https://paucls.wordpress.com/2019/01/23/my-notes-on-refactoring-from-anemic-domain-model-by-vladimir-khorikov/
+
+https://github.com/ddd-by-examples/all-things-cqrs
+
+https://spring.io/blog/2011/04/26/advanced-spring-data-jpa-specifications-and-querydsl/
+
+https://github.com/perplexhub/rsql-jpa-specification
+
+
+repositorio
+https://github.com/jeroenvs/querybyspec
+
+A ideia básica do DDD está centrada no conhecimento do problema para o qual o software foi proposto. Na prática, trata-se de uma coleção de padrões e princípios de design que buscam auxiliar o desenvolvedor na tarefa de construir aplicações que reflitam um entendimento do negócio. É a construção do software a partir da modelagem do domínio real como classes de domínio que, por sua vez, possuirão relacionamentos entre elas.
+
+
+@ValueObject
+	@Embeddable
+
+
+
+@Getter and @Setter
+@FieldNameConstants
+@ToString
+@EqualsAndHashCode
+@AllArgsConstructor, @RequiredArgsConstructor and @NoArgsConstructor
+@Log, @Log4j, @Log4j2, @Slf4j, @XSlf4j, @CommonsLog, @JBossLog, @Flogger, @CustomLog
+@Data
+@Builder
+@SuperBuilder
+@Singular
+@Delegate
+@Value
+@Accessors
+@Wither
+@With
+@SneakyThrows
+@val
+@var
+experimental @var
+@UtilityClass
+Lombok config system
+
+
+http://www.fabriciorissetto.com/blog/specification-pattern/ ver esse
+
+Não retire da entidade regras que pertencem a ela
+
+Não é objetivo da especificação absorver regras que pertencem à entidade. E sim absorver regras que NÃO pertencem à entidade (explico melhor isso logo em seguida).
+
+
+
+AQUI
+
+https://github.com/Murillo/Specification-Pattern
+
+https://www.logicbig.com/tutorials/java-ee-tutorial/jpa/criteria-api-inner-join.html
+
+https://github.com/praroopgupta/dynamic-queries-spring-data-jpa-specifications/blob/master/src/main/java/com/pg/dynamicqueries/service/MovieSpecification.java
+
+https://github.com/wenhao/jpa-spec/blob/master/src/main/java/com/github/wenhao/jpa/specification/GeSpecification.java
+
+based on the type-safe specification
+interface, as described by Martin Fowler
+
+https://martinfowler.com/apsupp/spec.pdf
+
+
+Quando levamos a linguagem ubíqua a sério, queremos nomes (para classes, métodos, etc.) que contenham apenas palavras da linguagem de domínio. Isso significa que os títulos dos blocos de construção não devem fazer parte dos nomes. Portanto, em um domínio bancário não queremos BankAccountEntity, CurrencyVOnem mesmo AccountRepositorycomo tipos. Em vez disso, queremos BankAccount, Currencye Accounts- como no exemplo acima.
+
+Ainda assim, queremos expressar que uma determinada classe (ou outro elemento arquitetônico) é um bloco de construção especial; ou seja, usa um padrão de design. jMolecules fornece um conjunto de anotações padrão (e, alternativamente, interfaces de marcador) para os blocos de construção conhecidos do DDD.
+
+
+https://docs.microsoft.com/pt-br/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design
+
+https://docs.microsoft.com/pt-br/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/ddd-oriented-microservice
+
+https://martinfowler.com/tags/domain%20driven%20design.html
+
+https://lostechies.com/jimmybogard/2010/02/04/strengthening-your-domain-a-primer/
+
+https://vaadin.com/learn/tutorials/ddd/tactical_domain_driven_design?hss_channel=fbp-97872746217&utm_campaign=Learning%20Center&utm_medium=social&utm_source=facebook&utm_content=101771373
+
+https://vaadin.com/learn/tutorials/ddd/tactical_domain_driven_design?hss_channel=fbp-97872746217&utm_campaign=Learning%20Center&utm_medium=social&utm_source=facebook&utm_content=101771373
+
+https://enterprisecraftsmanship.com/posts/having-the-domain-model-separate-from-the-persistence-model/
+
+https://fullcycle.com.br/domain-driven-design/
+
+https://www.lambda3.com.br/2017/10/desmistificando-o-ddd/
+https://github.com/vmf/modelmapper-jpa
+
+http://scabl.blogspot.com/2015/03/aeddd-5.html
+
+https://olvlvl.com/2018-04-command-dispatcher-pattern
+
+
+Blocos de construção do Model Driven Design (MDD)
+
+Uma vez que decidimos criar um modelo usando MDD, precisamos, inicialmente, isolar o modelo de domínio das demais partes que compõem o sistema. Essa separação pode ser feita utilizando-se uma arquitetura em camadas (Figura 1), que dividirá nossa aplicação em quatro partes:
+
+Interface de Usuário – parte responsável pela exibição de informações do sistema ao usuário e também por interpretar comandos do usuário;
+Aplicação – essa camada não possui lógica de negócio. Ela é apenas uma camada fina, responsável por conectar a Interface de Usuário às camadas inferiores;
+Domínio – representa os conceitos, regras e lógicas de negócio. Todo o foco de DDD está nessa camada. Nosso trabalho, daqui para frente, será aperfeiçoar e compreender profundamente essa parte;
+Infra-estrutura – fornece recursos técnicos que darão suporte às camadas superiores. São normalmente as partes de um sistema responsáveis por persistência de dados, conexões com bancos de dados, envio de mensagens por redes, gravação e leitura de discos, etc.
+
+http://www.agileandart.com/2010/07/16/ddd-introducao-a-domain-driven-design/
+
+https://auth0.com/blog/automatically-mapping-dto-to-entity-on-spring-boot-apis/
+
+https://jetbrains.org/intellij/sdk/docs/basics/plugin_structure/plugin_content.html
+
+https://ibm-cloud-architecture.github.io/refarch-eda/patterns/cqrs/
+
+https://github.com/BottegaIT/ddd-leaven-v2
+https://github.com/ddd-by-examples/factory
+https://github.com/asc-lab/java-cqrs-intro
+https://github.com/luontola/cqrs-hotel/tree/master/src/main/java/fi/luontola/cqrshotel
+https://github.com/asc-lab/java-cqrs-intro
+https://github.com/changmingxie/aggregate-framework	
+https://github.com/ddd-by-examples/factory
+https://github.com/BottegaIT/ddd-leaven-v2
+https://github.com/Domo42/saga-lib
+https://github.com/egetman/jes
+https://github.com/networknt/light-saga-4j
+https://github.com/simplesourcing/simplesagas
+https://github.com/benwilcock/pcf-axon-cqrs-demo
+https://github.com/fuinorg/cqrs-4-java
+https://github.com/luontola/cqrs-hotel
+https://github.com/ketan-gote/ddd-example
+
+usar isso na documentacao da api
+http://scabl.blogspot.com/2015/04/aeddd-9.html
+
+
+
+https://github.com/asc-lab/java-cqrs-intro/blob/master/separatemodels/src/main/java/pl/altkom/asc/lab/cqrs/intro/separatemodels/domain/primitives/MonetaryAmount.java
+
+https://github.com/neoremind/fluent-validator
+
+
+
+
+
+CrudRepository<T, ID>
+PagingAndSortingRepository<T, ID>
+RevisionRepository<T, ID, N extends Number & Comparable<N>>

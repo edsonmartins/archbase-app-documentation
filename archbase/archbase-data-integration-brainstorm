@@ -1,0 +1,58 @@
+- Modelo de serviço
+
+   - Inquilino;
+   - Ambiente separado;
+   - Repositório padrão de plugins conforme o tipo de conta;
+   - Repositório de plugins exclusivo;
+   - Cadastro de usuários (permissões);
+   - Forma de armazenamento;
+
+
+- Modelo Plugins e Extensões
+
+    Plugins
+    	- Command SQL;
+    	- Function SQL;
+    	- Stored Procedure SQL;
+    	- Shell Script;
+    	- ToJSON;
+    	- ToXML;
+    	- ToCVS;
+    	- ToConstant;
+    	- MySQLConnector;
+    	....
+
+
+	Extensões
+		- Connector;
+		- Processor;
+		- DataCollector;
+		- Transformer;
+		- Trigger;
+
+
+
+- Modelo de dados que compõe um projeto;
+
+
+	
+
+
+
+
+
+Funcionalidades App Web
+
+- Perfil da conta;
+   usuarios
+   plano
+
+- Gerenciador de plugins;
+
+- Editor fluxo de trabalho visual;
+
+- Executar um fluxo e acompanhar na tela;
+
+- Salvar um projeto com outro nome;
+
+- 	
