@@ -32,7 +32,7 @@ O DDD pode ser aplicado para resolver problemas de dominio de negócio dentro de
 
 ## Porque usar DDD?
 
-![](./img/porque_usar_DDD.png)
+![](./img/porque_usar_ddd.png)
 
 ## Vale a pena usar DDD?
 
