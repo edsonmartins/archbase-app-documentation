@@ -207,11 +207,16 @@ graph TD
 - Se ocorrer uma falha durante a fase "Try" da entrega, o serviço de logística pode iniciar a fase "Cancel" para reverter a transação.
 
 Ao lidar com casos de falha, é importante implementar mecanismos de reenvio de mensagens e tratamento de falhas para garantir a consistência e a integridade da transação distribuída.
-```
+:::
 
 ### 4. Transações Distribuídas Baseadas em SAGA
 
-As transações distribuídas baseadas em SAGA utilizam um conjunto de passos independentes para executar uma transação distribuída. Essa abordagem oferece flexibilidade na execução e capacidade de lidar com falhas parciais. No entanto, a coordenação dos diferentes passos e a possibilidade de inconsistências de dados são desafios a serem considerados.
+O Saga Pattern é um padrão de transação distribuída que aborda a atomicidade das operações em ambientes distribuídos, permitindo a reversão de ações já executadas em caso de falha. Em vez de coordenar a transação centralmente, o Saga Pattern divide a transação em várias etapas locais. Cada etapa é responsável por sua própria operação e pela reversão das operações anteriores, se necessário. Os passos típicos envolvidos no Saga Pattern são:
+
+O Saga inicia executando uma ação local e registra um registro de compensação associado.
+Se a ação for bem-sucedida, o Saga passa para a próxima etapa.
+Se ocorrer uma falha na ação, o Saga invoca a etapa de compensação correspondente para desfazer a ação anterior.
+O Saga continua para a próxima etapa até que todas as etapas sejam concluídas com sucesso ou até ocorrer uma falha irreversível.
 
 
 :::tip Vantagens:
@@ -225,6 +230,21 @@ As transações distribuídas baseadas em SAGA utilizam um conjunto de passos in
 - Possibilidade de estados inconsistentes entre as etapas em caso de falha.
 - Necessidade de lógicas de compensação bem definidas para reverter operações anteriores.
 :::
+
+```css Algoritimo
+
+1. O serviço de pedidos inicia a transação de pedido.
+2. O serviço de pedidos executa a lógica de negócio para processar o pedido.
+3. Se o processamento do pedido for bem-sucedido, o serviço de pedidos envia uma mensagem de evento (PedidoCriado) para o próximo participante.
+4. O próximo participante recebe a mensagem de evento e executa sua lógica de negócio.
+5. Se a lógica de negócio for bem-sucedida, o próximo participante envia uma mensagem de evento (AçãoConcluída) para o próximo participante na sequência.
+6. Esse processo de envio de mensagens de evento e execução de lógica de negócio continua até que todas as etapas da transação sejam concluídas.
+7. Se ocorrer uma falha em qualquer etapa, um mecanismo de compensação é acionado para reverter as etapas anteriores e garantir a consistência dos dados.
+8. Cada participante responsável por uma etapa possui sua própria lógica de compensação para desfazer as operações já realizadas.
+9. O fluxo continua até que todas as etapas sejam concluídas com sucesso ou até que ocorra uma falha irreversível.
+10. Em caso de conclusão bem-sucedida, a transação é finalizada com sucesso.
+11. Em caso de falha irreversível, a transação é marcada como falha e uma ação apropriada é tomada (como notificar um administrador ou iniciar um processo de recuperação).
+```
 
 ### 5. Transação Distribuída Baseada em Two-Phase Commit (2PC)
 
