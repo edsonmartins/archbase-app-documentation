@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Archbase Application Framework',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Ajudando desenvolvedores a criar novas aplicações de forma mais rápida e produtiva.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -81,11 +81,20 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Documentação',
+            label: 'Backend',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            position: 'left',
+            label: 'Frontend',
+            href: 'https://react.archbase.com.br',
+          },
+          {
+            position: 'left',
+            label: 'Mobile',
+            href: 'https://flutter.archbase.com.br',
+          },
+          {
+            href: 'https://github.com/edsonmartins/archbase-react',
             label: 'GitHub',
             position: 'right',
           },
