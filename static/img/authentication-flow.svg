@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+      .text { font-family: 'Inter', system-ui, sans-serif; }
+      .title { font-size: 20px; font-weight: 700; fill: #1a1a1a; }
+      .subtitle { font-size: 14px; font-weight: 600; fill: #333; }
+      .label { font-size: 12px; font-weight: 500; fill: #555; }
+      .small { font-size: 11px; font-weight: 400; fill: #666; }
+      .tiny { font-size: 10px; font-weight: 400; fill: #777; }
+      .white { fill: #ffffff; }
+    </style>
+    <linearGradient id="clientGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0EA5E9;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#0284c7;stop-opacity:0.15" />
+    </linearGradient>
+    <linearGradient id="authGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0.15" />
+    </linearGradient>
+    <linearGradient id="serviceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7dd3fc;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#38bdf8;stop-opacity:0.15" />
+    </linearGradient>
+    <linearGradient id="tokenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.15" />
+    </linearGradient>
+    <linearGradient id="filterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.15" />
+    </linearGradient>
+    <linearGradient id="optionalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0.1" />
+    </linearGradient>
+
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0EA5E9"/>
+    </marker>
+    <marker id="arrowAmber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8b5cf6"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="700" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="text title">Fluxo de Autenticação</text>
+
+  <!-- CLIENTE -->
+  <g transform="translate(450, 90)">
+    <rect x="-80" y="-25" width="160" height="50" rx="8" fill="url(#clientGrad)" stroke="#0EA5E9" stroke-width="2"/>
+    <text x="0" y="5" text-anchor="middle" class="text subtitle" fill="#0284c7">CLIENTE</text>
+  </g>
+
+  <!-- Arrow 1: Login -->
+  <line x1="450" y1="125" x2="450" y2="155" stroke="#0EA5E9" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="460" y="145" class="text small">1. POST /api/v1/auth/login</text>
+
+  <!-- AuthController -->
+  <g transform="translate(450, 185)">
+    <rect x="-100" y="-25" width="200" height="50" rx="8" fill="url(#authGrad)" stroke="#38bdf8" stroke-width="2"/>
+    <text x="0" y="5" text-anchor="middle" class="text subtitle" fill="#0284c7">AuthController</text>
+  </g>
+
+  <!-- Arrow 2: Authenticate -->
+  <line x1="450" y1="220" x2="450" y2="250" stroke="#0EA5E9" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="460" y="240" class="text small">2. authenticate()</text>
+
+  <!-- AuthenticationService Container -->
+  <g transform="translate(450, 320)">
+    <rect x="-280" y="-65" width="560" height="130" rx="12" fill="url(#serviceGrad)" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="-260" y="-45" class="text label" fill="#0284c7">AuthenticationService</text>
+
+    <!-- AuthenticationBusinessDelegate (Optional) -->
+    <g transform="translate(-150, 0)">
+      <rect x="-100" y="-20" width="200" height="40" rx="6" fill="url(#optionalGrad)" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <text x="0" y="5" text-anchor="middle" class="text small" fill="#92400e">BusinessDelegate (opcional)</text>
+    </g>
+
+    <!-- Gerar Tokens -->
+    <g transform="translate(50, 0)">
+      <rect x="-80" y="-20" width="160" height="40" rx="6" fill="url(#tokenGrad)" stroke="#f59e0b" stroke-width="2"/>
+      <text x="0" y="-2" text-anchor="middle" class="text small" fill="#78350f">Gerar Tokens</text>
+      <text x="0" y="12" text-anchor="middle" class="text tiny" fill="#78350f">Access (15min) + Refresh (7d)</text>
+    </g>
+
+    <!-- AuthenticationResponseEnricher (Optional) -->
+    <g transform="translate(-150, 45)">
+      <rect x="-100" y="-15" width="200" height="30" rx="6" fill="url(#optionalGrad)" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <text x="0" y="5" text-anchor="middle" class="text tiny" fill="#92400e">ResponseEnricher (opcional)</text>
+    </g>
+  </g>
+
+  <!-- Labels for steps inside service -->
+  <text x="280" y="300" class="text tiny">3a. pre/postAuthenticate()</text>
+  <text x="520" y="300" class="text tiny">4. Gerar tokens JWT</text>
+  <text x="280" y="375" class="text tiny">5. Enriquecer resposta</text>
+
+  <!-- Response Arrow -->
+  <path d="M 170 320 L 120 320 L 120 450 L 350 450" fill="none" stroke="#666" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrowBlue)"/>
+  <text x="130" y="390" class="text tiny">6. Response</text>
+
+  <!-- CLIENTE (Response) -->
+  <g transform="translate(450, 450)">
+    <rect x="-80" y="-25" width="160" height="50" rx="8" fill="url(#clientGrad)" stroke="#0EA5E9" stroke-width="2"/>
+    <text x="0" y="-5" text-anchor="middle" class="text subtitle" fill="#0284c7">CLIENTE</text>
+    <text x="0" y="12" text-anchor="middle" class="text tiny" fill="#666">recebe tokens</text>
+  </g>
+
+  <!-- Divider -->
+  <line x1="50" y1="495" x2="850" y2="495" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="450" y="515" text-anchor="middle" class="text label" fill="#94a3b8">REQUISIÇÕES POSTERIORES COM TOKEN</text>
+
+  <!-- Second Request -->
+  <g transform="translate(450, 560)">
+    <rect x="-80" y="-20" width="160" height="40" rx="8" fill="url(#clientGrad)" stroke="#0EA5E9" stroke-width="2"/>
+    <text x="0" y="5" text-anchor="middle" class="text label" fill="#0284c7">CLIENTE</text>
+  </g>
+
+  <!-- Arrow: Bearer Token -->
+  <line x1="450" y1="590" x2="450" y2="620" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <text x="460" y="610" class="text small">7. Header: Authorization: Bearer {token}</text>
+
+  <!-- JWT Filter -->
+  <g transform="translate(450, 650)">
+    <rect x="-150" y="-25" width="300" height="50" rx="8" fill="url(#filterGrad)" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="0" y="-2" text-anchor="middle" class="text subtitle" fill="#6d28d9">JwtAuthenticationFilter</text>
+    <text x="0" y="15" text-anchor="middle" class="text tiny" fill="#6d28d9">Valida token → SecurityContext</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(50, 670)">
+    <circle cx="10" cy="10" r="6" fill="#0EA5E9"/>
+    <text x="22" y="14" class="text tiny">Componentes</text>
+
+    <circle cx="120" cy="10" r="6" fill="#f59e0b"/>
+    <text x="132" y="14" class="text tiny">Tokens</text>
+
+    <rect x="180" y="5" width="12" height="10" fill="#fbbf24" stroke="#f59e0b" stroke-dasharray="2,2"/>
+    <text x="200" y="14" class="text tiny">Opcional</text>
+
+    <circle cx="280" cy="10" r="6" fill="#8b5cf6"/>
+    <text x="292" y="14" class="text tiny">Validação</text>
+  </g>
+
+  <!-- Flow numbers on right side -->
+  <g transform="translate(780, 320)">
+    <text x="0" y="0" text-anchor="middle" class="text label" fill="#94a3b8">FLUXO</text>
+
+    <text x="0" y="30" text-anchor="middle" class="text tiny" fill="#666">1. Login</text>
+    <text x="0" y="50" text-anchor="middle" class="text tiny" fill="#666">2. Controller</text>
+    <text x="0" y="70" text-anchor="middle" class="text tiny" fill="#666">3. Service</text>
+    <text x="0" y="90" text-anchor="middle" class="text tiny" fill="#666">4. Tokens</text>
+    <text x="0" y="110" text-anchor="middle" class="text tiny" fill="#666">5. Response</text>
+    <text x="0" y="130" text-anchor="middle" class="text tiny" fill="#666">6. Cliente</text>
+    <text x="0" y="160" text-anchor="middle" class="text tiny" fill="#666">7. Requisição</text>
+    <text x="0" y="180" text-anchor="middle" class="text tiny" fill="#666">8. Valida</text>
+  </g>
+</svg>

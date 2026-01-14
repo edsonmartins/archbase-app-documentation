@@ -6,23 +6,124 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #134d9b;
-  --ifm-color-primary-dark: #11458b;
-  --ifm-color-primary-darker: #104184;
-  --ifm-color-primary-darkest: #0d366c;
-  --ifm-color-primary-light: #1555aa;
-  --ifm-color-primary-lighter: #1659b2;
-  --ifm-color-primary-lightest: #1964c9;
+  --ifm-color-primary: #0EA5E9;
+  --ifm-color-primary-dark: #0284c7;
+  --ifm-color-primary-darker: #0369a1;
+  --ifm-color-primary-darkest: #075985;
+  --ifm-color-primary-light: #38bdf8;
+  --ifm-color-primary-lighter: #7dd3fc;
+  --ifm-color-primary-lightest: #bae6fd;
+
+  --ifm-code-font-size: 95%;
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark mode adjustments */
 [data-theme='dark'] {
-  --ifm-color-primary: #3994e0;
-  --ifm-color-primary-dark: #2287db;
-  --ifm-color-primary-darker: #2689dd;
-  --ifm-color-primary-darkest: #2285d8;
-  --ifm-color-primary-light: #51a1e4;
-  --ifm-color-primary-lighter: #5da8e6;
-  --ifm-color-primary-lightest: #82bbeb;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-background-surface-color: #1a1a1a;
+  --ifm-background-color: #0f0f0f;
+  --ifm-color-primary: #38bdf8;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 996px) {
+  .hero__title {
+    font-size: 2rem;
+  }
+}
+
+/* Code block enhancements */
+.token.class-name {
+  color: #ff7b72;
+}
+
+.token.annotation {
+  color: #d2a8ff;
+}
+
+.token.keyword {
+  color: #ff7b72;
+}
+
+/* Admonition enhancements */
+.admonition {
+  border-radius: 8px;
+}
+
+/* Feature cards */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+}
+
+.featureCard {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.featureCard h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+/* Code block title styling */
+div[class*='codeBlockTitle'] {
+  font-weight: 600;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ifm-background-surface-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-color-emphasis-500);
+}
+
+/* Footer logo */
+.footer__logo {
+  max-height: 40px;
 }

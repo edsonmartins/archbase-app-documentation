@@ -1,63 +1,46 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
-
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Archbase Application Framework',
-  tagline: 'Ajudando desenvolvedores a criar novas aplicações de forma mais rápida e produtiva.',
-  favicon: 'img/favicon.ico',
+  title: 'Archbase Java',
+  tagline: 'Framework Java para aplicações corporativas com DDD',
 
-  // Set the production url of your site here
-  url: 'https://edsonmartins.github.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  favicon: 'favicon-light.png',
+
+  url: 'https://java.archbase.dev',
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'edsonmartins', // Usually your GitHub org/user name.
-  projectName: 'archbase-app-documentation', // Usually your repo name.
-  deploymentBranch: 'gh-pages', //
+  organizationName: 'edsonmartins',
+  projectName: 'archbase-app-framework',
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'warn',
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
-  },
-
+  // Markdown config
   markdown: {
-    mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+      onBrokenMarkdownImages: 'ignore',
+    },
   },
-  themes: ['@docusaurus/theme-mermaid'],
+
+  i18n: {
+    defaultLocale: 'pt-BR',
+    locales: ['pt-BR'],
+  },
 
   presets: [
     [
-      'classic',
+      '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          path: 'docs',
+          routeBasePath: '/docs',
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/edsonmartins/archbase-app-framework/edit/main/docs/docusaurus/',
+          breadcrumbs: true,
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -68,33 +51,24 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Archbase',
+        title: 'Archbase Java',
         logo: {
-          alt: 'Archbase',
-          src: 'img/logo.svg',
+          alt: 'Archbase Java Logo',
+          src: 'img/logo-sem-texto-light.png',
+          srcDark: 'img/logo-sem-texto-dark.png',
+          width: 32,
+          height: 32,
         },
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'docsSidebar',
             position: 'left',
-            label: 'Backend',
+            label: 'Documentação',
           },
           {
-            position: 'left',
-            label: 'Frontend',
-            href: 'https://react.archbase.com.br',
-          },
-          {
-            position: 'left',
-            label: 'Mobile',
-            href: 'https://flutter.archbase.com.br',
-          },
-          {
-            href: 'https://github.com/edsonmartins/archbase-react',
+            href: 'https://github.com/edsonmartins/archbase-app-framework',
             label: 'GitHub',
             position: 'right',
           },
@@ -102,13 +76,27 @@ const config = {
       },
       footer: {
         style: 'dark',
+        logo: {
+          alt: 'Archbase Java Logo',
+          src: 'img/logo-com-texto-dark.png',
+          width: 200,
+          height: 60,
+        },
         links: [
           {
-            title: 'Docs',
+            title: 'Documentação',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Começando',
+                to: '/docs/getting-started/installation',
+              },
+              {
+                label: 'Conceitos DDD',
+                to: '/docs/conceitos/ddd',
+              },
+              {
+                label: 'Módulos',
+                to: '/docs/modulos/starter',
               },
             ],
           },
@@ -116,44 +104,22 @@ const config = {
             title: 'Comunidade',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'Mais',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'GitHub',
-                href: 'https://github.com/edsonmartins/archbase-react',
+                href: 'https://github.com/edsonmartins/archbase-app-framework',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Archbase`,
+        copyright: `Copyright © ${new Date().getFullYear()} Archbase Java.`,
       },
       prism: {
-        additionalLanguages: ["java","mermaid"],
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
-      mermaid: {
-        theme: {light: 'neutral', dark: 'forest'},
+        additionalLanguages: ['java', 'yaml', 'bash', 'groovy'],
+        theme: {
+          plain: {},
+          styles: [],
+        },
       },
     }),
 };
 
-module.exports = config;
+export default config;

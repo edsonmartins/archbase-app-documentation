@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+      .text { font-family: 'Inter', system-ui, sans-serif; }
+      .title { font-size: 18px; font-weight: 700; fill: #1a1a1a; }
+      .subtitle { font-size: 14px; font-weight: 600; fill: #333; }
+      .label { font-size: 12px; font-weight: 500; fill: #555; }
+      .small { font-size: 11px; font-weight: 400; fill: #666; }
+      .code { font-family: 'Monaco', 'Consolas', monospace; font-size: 11px; fill: #777; }
+    </style>
+    <linearGradient id="salesGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0EA5E9;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#0284c7;stop-opacity:0.15" />
+    </linearGradient>
+    <linearGradient id="supportGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0.15" />
+    </linearGradient>
+    <linearGradient id="catalogGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7dd3fc;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#38bdf8;stop-opacity:0.15" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="380" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="text title">Bounded Contexts</text>
+  <text x="400" y="52" text-anchor="middle" class="text small">Mesmo termo, significados diferentes em cada contexto</text>
+
+  <!-- Context: Catálogo/Vendas -->
+  <g transform="translate(80, 90)">
+    <rect x="0" y="0" width="280" height="230" rx="16"
+          fill="url(#salesGrad)" stroke="#0EA5E9" stroke-width="2.5"/>
+
+    <!-- Header -->
+    <rect x="0" y="0" width="280" height="42" rx="16" fill="#0EA5E9"/>
+    <rect x="0" y="28" width="280" height="18" fill="#0EA5E9"/>
+    <text x="140" y="28" text-anchor="middle" class="text" fill="white" font-size="14" font-weight="600">
+      Contexto: Vendas
+    </text>
+
+    <!-- Produto entity -->
+    <g transform="translate(20, 60)">
+      <rect x="0" y="0" width="240" height="150" rx="10" fill="white" stroke="#7dd3fc" stroke-width="1.5"/>
+      <text x="120" y="25" text-anchor="middle" class="text subtitle">PRODUTO</text>
+      <line x1="15" y1="38" x2="225" y2="38" stroke="#e5e7eb" stroke-width="1"/>
+
+      <g transform="translate(20, 55)">
+        <circle cx="5" cy="5" r="4" fill="#0EA5E9"/>
+        <text x="18" y="9" class="text code">nome: String</text>
+
+        <circle cx="5" cy="28" r="4" fill="#0EA5E9"/>
+        <text x="18" y="32" class="text code">preco: Money</text>
+
+        <circle cx="5" cy="51" r="4" fill="#0EA5E9"/>
+        <text x="18" y="55" class="text code">estoque: Integer</text>
+
+        <circle cx="5" cy="74" r="4" fill="#0EA5E9"/>
+        <text x="18" y="78" class="text code">categoria: Categoria</text>
+
+        <circle cx="5" cy="97" r="4" fill="#0EA5E9"/>
+        <text x="18" y="101" class="text code">descricao: String</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Context: Suporte Técnico -->
+  <g transform="translate(440, 90)">
+    <rect x="0" y="0" width="280" height="230" rx="16"
+          fill="url(#supportGrad)" stroke="#38bdf8" stroke-width="2.5"/>
+
+    <!-- Header -->
+    <rect x="0" y="0" width="280" height="42" rx="16" fill="#38bdf8"/>
+    <rect x="0" y="28" width="280" height="18" fill="#38bdf8"/>
+    <text x="140" y="28" text-anchor="middle" class="text" fill="white" font-size="14" font-weight="600">
+      Contexto: Suporte
+    </text>
+
+    <!-- Produto entity -->
+    <g transform="translate(20, 60)">
+      <rect x="0" y="0" width="240" height="150" rx="10" fill="white" stroke="#bae6fd" stroke-width="1.5"/>
+      <text x="120" y="25" text-anchor="middle" class="text subtitle">PRODUTO</text>
+      <line x1="15" y1="38" x2="225" y2="38" stroke="#e5e7eb" stroke-width="1"/>
+
+      <g transform="translate(20, 55)">
+        <circle cx="5" cy="5" r="4" fill="#38bdf8"/>
+        <text x="18" y="9" class="text code">nome: String</text>
+
+        <circle cx="5" cy="28" r="4" fill="#38bdf8"/>
+        <text x="18" y="32" class="text code">versao: String</text>
+
+        <circle cx="5" cy="51" r="4" fill="#38bdf8"/>
+        <text x="18" y="55" class="text code">bugsConhecidos: List&lt;Bug&gt;</text>
+
+        <circle cx="5" cy="74" r="4" fill="#38bdf8"/>
+        <text x="18" y="78" class="text code">logsErro: List&lt;Log&gt;</text>
+
+        <circle cx="5" cy="97" r="4" fill="#38bdf8"/>
+        <text x="18" y="101" class="text code">suporteAtivo: boolean</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- VS indicator -->
+  <g transform="translate(400, 205)">
+    <circle cx="0" cy="0" r="30" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="0" y="5" text-anchor="middle" class="text" font-size="16" font-weight="700" fill="#92400e">VS</text>
+  </g>
+
+  <!-- Context: Catálogo -->
+  <g transform="translate(80, 340)">
+    <rect x="0" y="0" width="150" height="28" rx="6" fill="url(#catalogGrad)" stroke="#7dd3fc" stroke-width="1.5"/>
+    <text x="75" y="19" text-anchor="middle" class="text label" fill="#38bdf8">Contexto: Catálogo</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(500, 340)">
+    <rect x="0" y="0" width="280" height="28" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+    <text x="140" y="19" text-anchor="middle" class="text small">Cada contexto é um sistema independente</text>
+  </g>
+</svg>

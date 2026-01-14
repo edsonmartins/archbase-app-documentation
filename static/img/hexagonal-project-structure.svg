@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+      .text { font-family: 'Inter', system-ui, sans-serif; }
+      .title { font-size: 18px; font-weight: 700; fill: #1a1a1a; }
+      .subtitle { font-size: 13px; font-weight: 600; fill: #333; }
+      .label { font-size: 11px; font-weight: 500; fill: #555; }
+      .small { font-size: 10px; font-weight: 400; fill: #666; }
+      .folder { font-size: 11px; font-weight: 600; fill: #333; }
+    </style>
+    <linearGradient id="domainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0EA5E9;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#0284c7;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="appGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="infraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7dd3fc;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#38bdf8;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="450" y="25" text-anchor="middle" class="text title">Estrutura de Projeto Hexagonal</text>
+
+  <!-- Root folder -->
+  <g transform="translate(30, 50)">
+    <rect x="0" y="0" width="840" height="450" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="15" y="22" class="text folder">📁 meu-projeto/</text>
+  </g>
+
+  <!-- Domain Module -->
+  <g transform="translate(60, 95)">
+    <rect x="0" y="0" width="180" height="380" rx="10" fill="url(#domainGrad)" stroke="#0EA5E9" stroke-width="2"/>
+    <rect x="0" y="0" width="180" height="32" rx="10" fill="#0EA5E9"/>
+    <rect x="0" y="24" width="180" height="12" fill="#0EA5E9"/>
+    <text x="90" y="22" text-anchor="middle" class="text" fill="white" font-size="12" font-weight="600">domain/</text>
+    <text x="90" y="55" text-anchor="middle" class="text label">CORE DO NEGÓCIO</text>
+
+    <g transform="translate(12, 75)">
+      <text y="0" class="text small">📁 entity/</text>
+      <text x="15" y="18" class="text small" fill="#777">Cliente.java</text>
+      <text x="15" y="34" class="text small" fill="#777">Pedido.java</text>
+
+      <text y="58" class="text small">📁 valueobject/</text>
+      <text x="15" y="76" class="text small" fill="#777">CPF.java</text>
+      <text x="15" y="92" class="text small" fill="#777">Email.java</text>
+
+      <text y="116" class="text small">📁 aggregate/</text>
+      <text x="15" y="134" class="text small" fill="#777">PedidoAggregate.java</text>
+
+      <text y="158" class="text small">📁 repository/</text>
+      <text x="15" y="176" class="text small" fill="#777">(interfaces)</text>
+
+      <text y="200" class="text small">📁 service/</text>
+      <text x="15" y="218" class="text small" fill="#777">Domain Services</text>
+
+      <text y="242" class="text small">📁 specification/</text>
+      <text x="15" y="260" class="text small" fill="#777">Queries specs</text>
+    </g>
+  </g>
+
+  <!-- Application Module -->
+  <g transform="translate(260, 95)">
+    <rect x="0" y="0" width="180" height="380" rx="10" fill="url(#appGrad)" stroke="#38bdf8" stroke-width="2"/>
+    <rect x="0" y="0" width="180" height="32" rx="10" fill="#38bdf8"/>
+    <rect x="0" y="24" width="180" height="12" fill="#38bdf8"/>
+    <text x="90" y="22" text-anchor="middle" class="text" fill="white" font-size="12" font-weight="600">application/</text>
+    <text x="90" y="55" text-anchor="middle" class="text label">USE CASES</text>
+
+    <g transform="translate(12, 75)">
+      <text y="0" class="text small">📁 port/</text>
+      <text y="18" class="text small" fill="#666">  input/</text>
+      <text x="15" y="36" class="text small" fill="#777">UseCase interfaces</text>
+      <text y="58" class="text small" fill="#666">  output/</text>
+      <text x="15" y="76" class="text small" fill="#777">Port interfaces</text>
+
+      <text y="100" class="text small">📁 service/</text>
+      <text x="15" y="118" class="text small" fill="#777">UseCase impl</text>
+
+      <text y="142" class="text small">📁 command/</text>
+      <text x="15" y="160" class="text small" fill="#777">Commands (CQRS)</text>
+
+      <text y="184" class="text small">📁 query/</text>
+      <text x="15" y="202" class="text small" fill="#777">Queries (CQRS)</text>
+
+      <text y="226" class="text small">📁 dto/</text>
+      <text x="15" y="244" class="text small" fill="#777">Data Transfer Obj</text>
+
+      <text y="268" class="text small">📁 handler/</text>
+      <text x="15" y="286" class="text small" fill="#777">Event Handlers</text>
+    </g>
+  </g>
+
+  <!-- Infrastructure Module -->
+  <g transform="translate(460, 95)">
+    <rect x="0" y="0" width="180" height="380" rx="10" fill="url(#infraGrad)" stroke="#7dd3fc" stroke-width="2"/>
+    <rect x="0" y="0" width="180" height="32" rx="10" fill="#7dd3fc"/>
+    <rect x="0" y="24" width="180" height="12" fill="#7dd3fc"/>
+    <text x="90" y="22" text-anchor="middle" class="text" fill="white" font-size="12" font-weight="600">infrastructure/</text>
+    <text x="90" y="55" text-anchor="middle" class="text label">ADAPTERS</text>
+
+    <g transform="translate(12, 75)">
+      <text y="0" class="text small">📁 input/</text>
+      <text y="18" class="text small" fill="#666">  rest/</text>
+      <text x="15" y="36" class="text small" fill="#777">Controllers</text>
+      <text y="58" class="text small" fill="#666">  graphql/</text>
+      <text x="15" y="76" class="text small" fill="#777">Resolvers</text>
+
+      <text y="100" class="text small">📁 output/</text>
+      <text y="118" class="text small" fill="#666">  persistence/</text>
+      <text x="15" y="136" class="text small" fill="#777">JPA Entities</text>
+      <text x="15" y="152" class="text small" fill="#777">Repositories</text>
+      <text y="174" class="text small" fill="#666">  messaging/</text>
+      <text x="15" y="192" class="text small" fill="#777">MQTT/JMS</text>
+      <text y="214" class="text small" fill="#666">  external/</text>
+      <text x="15" y="232" class="text small" fill="#777">HTTP Clients</text>
+    </g>
+  </g>
+
+  <!-- Config Module -->
+  <g transform="translate(660, 95)">
+    <rect x="0" y="0" width="180" height="380" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="0" y="0" width="180" height="32" rx="10" fill="#f59e0b"/>
+    <rect x="0" y="24" width="180" height="12" fill="#f59e0b"/>
+    <text x="90" y="22" text-anchor="middle" class="text" fill="white" font-size="12" font-weight="600">config/</text>
+    <text x="90" y="55" text-anchor="middle" class="text label">CONFIGURAÇÕES</text>
+
+    <g transform="translate(12, 75)">
+      <text y="0" class="text small">📄 SecurityConfig.java</text>
+      <text y="30" class="text small">📄 DatabaseConfig.java</text>
+      <text y="60" class="text small">📄 MqttConfig.java</text>
+      <text y="90" class="text small">📄 application.yml</text>
+    </g>
+  </g>
+
+  <!-- Dependency arrows -->
+  <g stroke="#666" stroke-width="2" fill="none">
+    <!-- Infra -> Domain -->
+    <path d="M 460 285 L 250 285" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+    <!-- App -> Domain -->
+    <path d="M 260 240 L 240 240 L 240 285" stroke-dasharray="4,2"/>
+    <!-- Infra -> App -->
+    <path d="M 460 240 L 450 240" stroke-dasharray="4,2"/>
+  </g>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- Legend -->
+  <g transform="translate(60, 465)">
+    <rect x="0" y="0" width="780" height="25" rx="6" fill="#f1f5f9"/>
+
+    <circle cx="20" cy="12" r="7" fill="#0EA5E9"/>
+    <text x="35" y="16" class="text small">Domínio (Core)</text>
+
+    <circle cx="160" cy="12" r="7" fill="#38bdf8"/>
+    <text x="175" y="16" class="text small">Aplicação (Ports)</text>
+
+    <circle cx="310" cy="12" r="7" fill="#7dd3fc"/>
+    <text x="325" y="16" class="text small">Infraestrutura (Adapters)</text>
+
+    <circle cx="500" cy="12" r="7" fill="#f59e0b"/>
+    <text x="515" y="16" class="text small">Configurações</text>
+
+    <text x="650" y="16" class="text small">→ Dependências apontam para o Core</text>
+  </g>
+</svg>
