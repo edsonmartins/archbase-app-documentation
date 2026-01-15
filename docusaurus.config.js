@@ -65,7 +65,12 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'docsSidebar',
             position: 'left',
-            label: 'Documentação',
+            label: 'Documentação Java',
+          },
+          {
+            href: 'https://react.archbase.dev',
+            label: 'Documentação React',
+            position: 'left',
           },
           {
             href: 'https://github.com/edsonmartins/archbase-app-framework',
@@ -84,7 +89,7 @@ const config = {
         },
         links: [
           {
-            title: 'Documentação',
+            title: 'Documentação Java',
             items: [
               {
                 label: 'Começando',
@@ -97,6 +102,15 @@ const config = {
               {
                 label: 'Módulos',
                 to: '/docs/modulos/starter',
+              },
+            ],
+          },
+          {
+            title: 'Documentação React',
+            items: [
+              {
+                label: 'React Docs',
+                href: 'https://react.archbase.dev',
               },
             ],
           },
