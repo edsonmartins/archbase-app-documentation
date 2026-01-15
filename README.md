@@ -17,7 +17,7 @@ Archbase é um framework Java que permite desenvolver tanto aplicações simples
 
 ## Documentação
 
-A documentação completa está disponível em [**archbase-docs.edsonmartins.com**](https://archbase-docs.edsonmartins.com)
+A documentação completa está disponível em [**java.archbase.dev**](https://java.archbase.dev)
 
 ### Guias Rápidos
 
@@ -134,7 +134,7 @@ pnpm build
 
 - [Framework Archbase](https://github.com/archbase-framework/archbase-app-framework)
 - [Archbase Java Boilerplate](https://github.com/archbase-framework/archbase-java-boilerplate)
-- [Documentação Online](https://archbase-docs.edsonmartins.com)
+- [Documentação Online](https://java.archbase.dev)
 
 ## Licença
 
