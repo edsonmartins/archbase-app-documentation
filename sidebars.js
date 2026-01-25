@@ -84,6 +84,7 @@ const sidebars = {
         'modulos/identifier',
         'modulos/jackson',
         'modulos/archbase-architecture',
+        'modulos/architecture-rules',
       ],
     },
   ],
