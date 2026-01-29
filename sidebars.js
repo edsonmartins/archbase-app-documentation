@@ -85,6 +85,7 @@ const sidebars = {
         'modulos/jackson',
         'modulos/archbase-architecture',
         'modulos/architecture-rules',
+        'modulos/hypersistence',
       ],
     },
   ],
