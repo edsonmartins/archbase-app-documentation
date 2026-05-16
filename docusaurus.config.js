@@ -73,6 +73,11 @@ const config = {
             position: 'left',
           },
           {
+            href: 'https://flutter.archbase.dev',
+            label: 'Documentação Flutter',
+            position: 'left',
+          },
+          {
             href: 'https://github.com/edsonmartins/archbase-app-framework',
             label: 'GitHub',
             position: 'right',
@@ -106,11 +111,15 @@ const config = {
             ],
           },
           {
-            title: 'Documentação React',
+            title: 'Família Archbase',
             items: [
               {
                 label: 'React Docs',
                 href: 'https://react.archbase.dev',
+              },
+              {
+                label: 'Flutter Docs',
+                href: 'https://flutter.archbase.dev',
               },
             ],
           },
