@@ -7,7 +7,9 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 
 # Instalar pnpm
-RUN npm install -g pnpm
+# Mesma versão do lockfile (lockfileVersion 9.0) e do workflow. Sem versão, o npm traz o
+# pnpm 11, que falha em ERR_PNPM_IGNORED_BUILDS por causa do postinstall do core-js.
+RUN npm install -g pnpm@9
 
 # Instalar dependências
 RUN pnpm install --frozen-lockfile
